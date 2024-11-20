@@ -1,12 +1,9 @@
-name: CI for Go Project
+name: Build and Deploy Go App with Docker
 
 on:
   push:
     branches:
-      - main
-  pull_request:
-    branches:
-      - main
+      - main  # Запускать на push в основную ветку
 
 jobs:
   build:
@@ -16,13 +13,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Docker
+      - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
-        
-      - name: Build Docker image
-        run: |
-          docker build -t go-docker-example .
 
-      - name: Run the application in Docker
+      - name: Build Docker image
+        run: docker build -t go-web-app .
+
+      - name: Run Docker container
         run: |
-          docker run --rm go-docker-example
+          docker run -d -p 8080:8080 go-web-app
