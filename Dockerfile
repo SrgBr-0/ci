@@ -5,7 +5,7 @@ FROM golang:1.23-alpine
 WORKDIR /app
 
 # Копируем go.mod и go.sum для установки зависимостей (если они есть)
-COPY go.mod go.sum ./
+COPY go.mod ./
 
 # Устанавливаем зависимости
 RUN go mod tidy
