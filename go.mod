@@ -1,3 +1,3 @@
 module go-docker-example
 
-go 1.23rc2
+go 1.23
