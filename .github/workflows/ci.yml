@@ -10,15 +10,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Шаг 1: Проверяем код
       - name: Checkout code
         uses: actions/checkout@v3
 
+      # Шаг 2: Устанавливаем Docker Buildx для оптимизации сборки
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
 
+      # Шаг 3: Пересобираем Docker образ
       - name: Build Docker image
-        run: docker build -t go-web-app .
+        run: |
+          docker build -t go-web-app .
 
+      # Шаг 4: Останавливаем и удаляем старый контейнер (если он существует)
+      - name: Stop and remove old container
+        run: |
+          container_id=$(docker ps -q -f name=go-web-app)
+          if [ -n "$container_id" ]; then
+            docker stop go-web-app
+            docker rm go-web-app
+          fi
+
+      # Шаг 5: Запускаем новый контейнер с тем же именем
       - name: Run Docker container
         run: |
-          docker run -d -p 8080:8080 go-web-app
+          docker run -d -p 8080:8080 --name go-web-app go-web-app
