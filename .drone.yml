@@ -20,7 +20,7 @@ steps:
     username: SrgBr0
     password: 
       from_secret: docker_password
-    repo: SrgBr0/НАЗВАНИЕ_РЕПОЗИТОРИЯ
+    repo: SrgBr0/ci
     tags: 
       - latest
       - ${DRONE_COMMIT_SHA:0:7}
