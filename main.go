@@ -66,7 +66,7 @@ func addHandler(w http.ResponseWriter, r *http.Request) {
 			<html>
 				<head><title>Simple Calculator</title></head>
 				<body>
-					<h1>Plus Calculator</h1>
+					<h1>Plus+ Calculator</h1>
 					<form method="POST">
 						<label for="num1">Number 1:</label>
 						<input type="text" name="num1" id="num1" required>
