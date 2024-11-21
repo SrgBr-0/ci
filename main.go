@@ -39,7 +39,7 @@ func addHandler(w http.ResponseWriter, r *http.Request) {
 			<html>
 				<head><title>Plus Calculator</title></head>
 				<body>
-					<h1>Simple Calculator</h1>
+					<h1>Plus Calculator</h1>
 					<form method="POST">
 						<label for="num1">Number 1:</label>
 						<input type="text" name="num1" id="num1" required>
@@ -64,7 +64,7 @@ func addHandler(w http.ResponseWriter, r *http.Request) {
 		// Для GET-запроса просто отрисовываем форму
 		tmpl, err := template.New("calculator").Parse(`
 			<html>
-				<head><title>Simple Calculator</title></head>
+				<head><title>Plus Calculator</title></head>
 				<body>
 					<h1>Plus Calculator</h1>
 					<form method="POST">
