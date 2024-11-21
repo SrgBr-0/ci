@@ -28,11 +28,15 @@ jobs:
         run: |
           container_id=$(docker ps -q -f name=go-web-app)
           if [ -n "$container_id" ]; then
+            echo "Stopping and removing old container..."
             docker stop go-web-app
             docker rm go-web-app
+          else
+            echo "No old container found."
           fi
 
       # Шаг 5: Запускаем новый контейнер с тем же именем
       - name: Run Docker container
         run: |
+          echo "Starting new container with updated image..."
           docker run -d -p 8080:8080 --name go-web-app go-web-app
