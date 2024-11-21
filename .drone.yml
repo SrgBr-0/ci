@@ -19,7 +19,7 @@ steps:
   settings:
     username: SrgBr0
     password: 
-      from_secret: Serega2146fcb
+      from_secret: docker_password
     repo: SrgBr0/НАЗВАНИЕ_РЕПОЗИТОРИЯ
     tags: 
       - latest
