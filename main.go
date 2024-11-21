@@ -91,6 +91,7 @@ func addHandler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	http.HandleFunc("/", addHandler)
+	fmt.Println("LOOK")
 
 	fmt.Println("Starting server on :8080")
 	http.ListenAndServe(":8080", nil)
