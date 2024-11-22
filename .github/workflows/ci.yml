@@ -3,7 +3,7 @@ name: Build and Deploy Go App with Docker
 on:
   push:
     branches:
-      - main  # Запускать на push в основную ветку
+      - ci_not_main  # Запускать на push в основную ветку
 
 jobs:
   build:
